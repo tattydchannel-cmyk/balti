@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- Страница "Контакты" с формой обратной связи -->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактная информация и форма обратной связи — Бельцы.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="icon" href="../images/home.png">
+    <script src="../js/script.js" defer></script>
+    <title>Контакты — Бельцы</title>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <img class="logo" src="../images/home.png" alt="Логотип города Бельцы">
+        <nav>
+            <a href="../index.html">Главная</a>
+            <a href="despre.html">О городе</a>
+            <a href="dostoprimechatel.html">Достопримечательности</a>
+            <a href="galerie.html">Галерея</a>
+            <a href="contacte.html" class="active">Контакты</a>
+        </nav>
+        <i id="hamburger" onclick="mobileMenu()" class="fa-solid fa-bars" aria-label="Меню"></i>
+    </header>
+
+    <main>
+        <section id="contacts-top" aria-label="Контакты и форма обратной связи">
+
+            <h1 class="centered">Контакты</h1>
+
+            <div class="row">
+
+                <!-- Блок с контактными данными -->
+                <div class="col-50">
+                    <div class="contacte" aria-label="Контактные данные">
+                        <h2 class="centered">Контактная информация</h2>
+                        <p><i class="fa-solid fa-envelope"></i> <b>Примария: </b>
+                            <a href="mailto:drp@balti.md">drp@balti.md</a>
+                        </p>
+                        <p><i class="fa-solid fa-envelope"></i> <b>Отдел туризма: </b>
+                            <a href="mailto:turism.dget@balti.md">turism.dget@balti.md</a>
+                        </p>
+                        <p><i class="fa-solid fa-envelope"></i> <b>Ассоциация гидов: </b>
+                            <a href="mailto:info@guides.md">info@guides.md</a>
+                        </p>
+                        <p><i class="fa-solid fa-globe"></i> <b>Помощь для беженцев: </b>
+                            <!-- Внешняя ссылка -->
+                            <a target="_blank" href="https://dopomogabalti.org/home_ru" rel="noopener noreferrer">dopomogabalti.org</a>
+                        </p>
+                        <p><i class="fa-solid fa-phone"></i> <b>Скорая помощь: </b>
+                            <a href="tel:112">112</a>
+                        </p>
+                        <p><i class="fa-solid fa-globe"></i> <b>Официальный сайт: </b>
+                            <a href="https://balti.md" target="_blank" rel="noopener noreferrer">balti.md</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Форма обратной связи с 4+ полями -->
+                <div class="col-50">
+                    <form class="cform" id="contact-form" onsubmit="submitForm(event)" method="POST" action="https://formsubmit.co/dimamelnic99@gmail.com" novalidate aria-label="Форма обратной связи">
+                        <h2 class="centered">Обратная связь</h2>
+
+                        <input type="hidden" name="_subject" value="Новая обратная связь с сайта Бельцы">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://formsubmit.co/thanks">
+
+                        <!-- Поле 1: Имя -->
+                        <label for="fname">Ваше имя *</label>
+                        <input type="text" id="fname" name="name" placeholder="Введите ваше имя" required>
+
+                        <!-- Поле 2: Email -->
+                        <label for="femail">Email адрес *</label>
+                        <input type="email" id="femail" name="email" placeholder="example@mail.com" required>
+
+                        <!-- Поле 3: Тема -->
+                        <label for="fsubject">Тема обращения</label>
+                        <select id="fsubject" name="subject">
+                            <option value="">-- Выберите тему --</option>
+                            <option value="tourism">Туризм</option>
+                            <option value="help">Помощь</option>
+                            <option value="business">Бизнес</option>
+                            <option value="other">Другое</option>
+                        </select>
+
+                        <!-- Поле 4: Телефон -->
+                        <label for="fphone">Номер телефона</label>
+                        <input type="tel" id="fphone" name="phone" placeholder="+373 XXX XXXXX">
+
+                        <!-- Поле 5: Сообщение -->
+                        <label for="fmessage">Ваше сообщение *</label>
+                        <textarea id="fmessage" name="message" rows="5" placeholder="Напишите ваше сообщение..." required></textarea>
+
+                        <button type="submit" class="btn-primary submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Отправить
+                        </button>
+
+                        <!-- Блок для отображения результата -->
+                        <div id="form-result" class="form-result" role="alert" aria-live="polite"></div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Карта Google Maps -->
+            <h2 class="centered" style="margin-top:30px;">Карта города</h2>
+            <iframe class="harta"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42907.97107232485!2d27.860093747606285!3d47.76693839751698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cb673a731f2613%3A0x75ffb7a54ede02d9!2z0JHQtdC70YzRhtGLLCDQnNC-0LvQtNC-0LLQsA!5e0!3m2!1sru!2s!4v1774688675212!5m2!1sru!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Карта города Бельцы" aria-label="Google карта Бельц"></iframe>
+
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-inner">
+            <span>© Бельцы 2026 | <a href="https://balti.md" target="_blank" rel="noopener noreferrer">Официальный сайт города</a></span>
+            <span><a href="#contacts-top">↑ Наверх</a></span>
+        </div>
+    </footer>
+
+</body>
+</html>
